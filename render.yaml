@@ -4,7 +4,7 @@
 # https://github.com/ojusave/kody
 # Upstream: https://github.com/kentcdodds/kody
 #
-# Deploy: https://render.com/deploy?repo=https://github.com/ojusave/kody
+# Deploy: https://render.com/deploy?repo=https://github.com/ojusave/kody&branch=render-blueprint
 #
 # Runs `wrangler dev --local` with emulated D1/KV/Durable Objects. Production
 # deploys belong on Cloudflare Workers; this Blueprint is for trying Kody on
