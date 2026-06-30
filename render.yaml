@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=https://render.com/schema/render.yaml.json
+#
+# Kody on Render — local Wrangler runtime (demo / evaluation)
+# https://github.com/ojusave/kody
+# Upstream: https://github.com/kentcdodds/kody
+#
+# Deploy: https://render.com/deploy?repo=https://github.com/ojusave/kody
+#
+# Runs `wrangler dev --local` with emulated D1/KV/Durable Objects. Production
+# deploys belong on Cloudflare Workers; this Blueprint is for trying Kody on
+# Render without provisioning Cloudflare resources.
+
+previews:
+  generation: off
+
+services:
+  - type: web
+    name: kody
+    runtime: node
+    plan: standard
+    region: oregon
+    buildCommand: >-
+      printf 'COOKIE_SECRET=%s\nSECRET_STORE_KEY=%s\n' "$COOKIE_SECRET" "$SECRET_STORE_KEY" > packages/worker/.env
+      && npm ci && npm run build && npm run migrate:local
+    startCommand: >-
+      printf 'COOKIE_SECRET=%s\nSECRET_STORE_KEY=%s\n' "$COOKIE_SECRET" "$SECRET_STORE_KEY" > packages/worker/.env
+      && node --env-file=packages/worker/.env ./wrangler-env.ts dev --local --ip 0.0.0.0
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: COOKIE_SECRET
+        generateValue: true
+      - key: SECRET_STORE_KEY
+        generateValue: true
