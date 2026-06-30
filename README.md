@@ -11,7 +11,6 @@
     <img src="https://img.shields.io/badge/Node-24-5FA04E?style=flat-square&logo=node.js&logoColor=white" alt="Node 24" />
     <img src="https://img.shields.io/badge/Cloudflare-Workers-F38020?style=flat-square&logo=cloudflare&logoColor=white" alt="Cloudflare Workers" />
     <img src="https://img.shields.io/badge/Remix-3.0_alpha-000000?style=flat-square&logo=remix&logoColor=white" alt="Remix" />
-    <a href="./render.yaml"><img src="https://img.shields.io/badge/Render-Blueprint-5C31FF?style=flat-square&logo=render&logoColor=white" alt="Render Blueprint" /></a>
     <a href="https://render.com/deploy?repo=https://github.com/ojusave/kody"><img src="https://img.shields.io/badge/Render-Deploy-5C31FF?style=flat-square&logo=render&logoColor=white" alt="Render Deploy" /></a>
   </p>
 </div>
